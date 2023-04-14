@@ -1,0 +1,1 @@
+export { hachickoDefaultTheme } from './default';
