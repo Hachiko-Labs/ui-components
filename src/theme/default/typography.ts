@@ -9,5 +9,5 @@ export const TYPOGRAPHY = {
     fontSize: '270px',
     lineHeight: '290px',
     letterSpacing: '-10px',
-  }
+  },
 };

@@ -1,16 +1,31 @@
+import { Icon } from '..';
+
 import StyledButton from './StyledButton';
-import { BaseButtonProps } from './types';
+import { ButtonProps } from './types';
 
 /**
  * Primary UI component for user interaction
  */
 const Button = ({
+  children,
   size: $size,
   type = 'default',
+  leftIcon,
+  rightIcon,
   ...props
-}: BaseButtonProps) => {
+}: ButtonProps) => {
   const size = $size === 'medium' ? 'middle' : $size;
-  return <StyledButton size={size} type={type} {...props} />;
+  return (
+    <StyledButton
+      icon={leftIcon ? <Icon>{leftIcon}</Icon> : null}
+      size={size}
+      type={type}
+      {...props}
+    >
+      {children}
+      {rightIcon && <Icon>{rightIcon}</Icon>}
+    </StyledButton>
+  );
 };
 
 export default Button;

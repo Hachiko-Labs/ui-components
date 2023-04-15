@@ -3,11 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,mdx}\"",
+    "lint": "eslint --cache --cache-location=.cache/eslint --ext .js,.jsx,.html,.ts,.tsx,.mdx,.md --report-unused-disable-directives",
+    "release": "pnpm build && auto shipit",
+    "storybook": "storybook dev -p 6006"
   },
   "dependencies": {
     "antd": "^5.4.2",
@@ -15,6 +16,7 @@
     "react-dom": "^18.2.0",
     "styled-components": "^5.3.9"
   },
+  "packageManager": "pnpm@8.0.0",
   "devDependencies": {
     "@storybook/addon-essentials": "^7.0.4",
     "@storybook/addon-interactions": "^7.0.4",
@@ -30,8 +32,16 @@
     "@types/react-dom": "^18.0.11",
     "@types/styled-components": "^5.1.26",
     "@vitejs/plugin-react": "^3.1.0",
+    "auto": "^10.44.0",
+    "eslint": "^8.38.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-storybook": "^0.6.11",
+    "prettier": "^2.8.7",
     "prop-types": "^15.8.1",
     "storybook": "^7.0.4",
+    "stylelint": "^15.4.0",
+    "stylelint-config-prettier": "^9.0.5",
     "typescript": "^4.9.3",
     "vite": "^4.2.0"
   }

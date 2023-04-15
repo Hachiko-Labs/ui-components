@@ -1,6 +1,4 @@
-import { 
-  COLORS,
-} from './colors';
+import { COLORS } from './colors';
 import { TYPOGRAPHY, FONTS } from './typography';
 
 export const hachickoDefaultTheme = Object.seal({
@@ -8,5 +6,5 @@ export const hachickoDefaultTheme = Object.seal({
   typography: {
     ...TYPOGRAPHY,
     ...FONTS,
-  }
+  },
 });

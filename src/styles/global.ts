@@ -1,4 +1,5 @@
 import { css, createGlobalStyle } from 'styled-components';
+import { hachickoDefaultTheme } from '../theme';
 
 export const bodyStyles = css`
   font-family: ${({ theme }) => theme.typography.family};
@@ -23,6 +24,16 @@ export const globalStyles = css`
     outline: none;
   }
 `;
+
+export const antdGlobalStyles = {
+  token: {
+    colorPrimary: hachickoDefaultTheme.colors.primaryBg,
+    colorError: hachickoDefaultTheme.colors.errorText,
+    colorWarning: hachickoDefaultTheme.colors.warningText,
+    colorInfo: hachickoDefaultTheme.colors.infoText,
+    colorSuccess: hachickoDefaultTheme.colors.successText,
+  },
+};
 
 export const GlobalStyle = createGlobalStyle`
   ${globalStyles}
