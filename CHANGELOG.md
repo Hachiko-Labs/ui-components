@@ -1,3 +1,19 @@
+# v1.0.3 (Sun Apr 16 2023)
+
+#### ⚠️ Pushed to `main`
+
+- pnpm setup ([@chrisdnz](https://github.com/chrisdnz))
+- build action fixed ([@chrisdnz](https://github.com/chrisdnz))
+- build action ([@chrisdnz](https://github.com/chrisdnz))
+- 1.0.3 ([@chrisdnz](https://github.com/chrisdnz))
+- publish new version with github actions ([@chrisdnz](https://github.com/chrisdnz))
+
+#### Authors: 1
+
+- Chris ([@chrisdnz](https://github.com/chrisdnz))
+
+---
+
 # v1.0.1 (Sun Apr 16 2023)
 
 #### ⚠️ Pushed to `main`
