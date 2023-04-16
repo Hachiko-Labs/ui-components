@@ -5,6 +5,33 @@ on:
     branches: [main]
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm ci
+      - run: npm test
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: pnpm
+          registry-url: https://npm.pkg.github.com/
+      - run: pnpm install --no-frozen-lockfile
+      - run: pnpm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GH_TOKEN}}
   release:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
@@ -30,20 +57,3 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           pnpm release
-
-  publish:
-    needs: release
-    runs-on: ubuntu-latest
-    permissions:
-      packages: write
-      contents: read
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          registry-url: https://npm.pkg.github.com/
-      - run: pnpm ci
-      - run: pnpm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GH_TOKEN}}
