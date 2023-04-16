@@ -1,0 +1,13 @@
+{
+  "plugins": [
+    "git-tag",
+    "all-contributors",
+    "conventional-commits",
+    "released"
+  ],
+  "owner": "Hachiko-Labs",
+  "repo": "ui-components",
+  "name": "Christian Najera",
+  "email": "christian@hachikolabs.io",
+  "onlyPublishWithReleaseLabel": true
+}
