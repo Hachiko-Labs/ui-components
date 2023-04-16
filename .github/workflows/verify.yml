@@ -1,0 +1,42 @@
+name: Verify changes
+
+on: pull_request
+
+jobs:
+  branch-info:
+    name: Branch Info
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get base branch
+        id: get-base-branch
+        run: |
+          if [[ "${{github.event.pull_request.base.ref}}" != "" ]]; then
+            echo "BRANCH=${{github.event.pull_request.base.ref}}" >> $GITHUB_OUTPUT
+          else
+            echo "BRANCH=main" >> $GITHUB_OUTPUT
+          fi
+    outputs:
+      base-branch: ${{ steps.get-base-branch.outputs.BRANCH }}
+
+  lint:
+    name: Lint
+    needs: [branch-info]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: pnpm
+
+      - name: Install Dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Lint
+        run: pnpm lint
