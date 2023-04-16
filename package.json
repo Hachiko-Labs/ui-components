@@ -1,7 +1,7 @@
 {
-  "name": "ui-components",
-  "private": true,
-  "version": "1.0.1",
+  "name": "@hachiko-labs/ui-components",
+  "version": "1.0.2",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc && vite build",
     "build-storybook": "storybook build",
@@ -9,6 +9,9 @@
     "lint": "eslint --cache --cache-location=.cache/eslint --ext .js,.jsx,.html,.ts,.tsx,.mdx,.md --report-unused-disable-directives",
     "release": "pnpm build && auto shipit",
     "storybook": "storybook dev -p 6006"
+  },
+  "publishConfig": {
+    "@hachiko-labs:registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
     "antd": "^5.4.2",
