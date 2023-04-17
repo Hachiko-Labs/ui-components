@@ -1,4 +1,4 @@
-import { Icon } from '..';
+import { Icon } from '../Icon/Icon';
 
 import StyledButton from './StyledButton';
 import { ButtonProps } from './types';
@@ -6,7 +6,7 @@ import { ButtonProps } from './types';
 /**
  * Primary UI component for user interaction
  */
-const Button = ({
+export const Button = ({
   children,
   size: $size,
   type = 'default',
@@ -27,5 +27,3 @@ const Button = ({
     </StyledButton>
   );
 };
-
-export default Button;

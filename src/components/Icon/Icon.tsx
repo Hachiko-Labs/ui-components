@@ -5,7 +5,7 @@ const VARIANT = {
   outlined: 'material-symbols-outlined',
 };
 
-const Icon = ({ children, className = '', family = 'round', spin, size, style }: IconProps) => {
+export const Icon = ({ children, className = '', family = 'round', spin, size, style }: IconProps) => {
   const classes = [VARIANT[family], className];
 
   if (spin) classes.push('anticon-spin');
@@ -16,5 +16,3 @@ const Icon = ({ children, className = '', family = 'round', spin, size, style }:
     </span>
   );
 };
-
-export default Icon;

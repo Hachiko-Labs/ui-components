@@ -1,3 +1,5 @@
-import 'antd/dist/antd.css';
-
+// Files
 export * from './components';
+
+// Themes
+export * from './theme';

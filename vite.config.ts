@@ -1,26 +1,20 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-
-const packageJSON = require(resolve('package.json'));
+import dts from 'vite-plugin-dts';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), dts()],
   build: {
     lib: {
-      entry: resolve('src/index.ts'),
-      formats: ['es', 'cjs'],
-      fileName: (format) => (format === 'es' ? 'index.es.js' : 'index.js'),
+      entry: resolve(__dirname, 'src/index.ts'),
+      formats: ['cjs', 'umd'],
+      fileName: 'index',
+      name: 'index',
     },
     rollupOptions: {
-      external: [
-        ...Object.keys(packageJSON.dependencies || {}),
-        'antd/dist/antd.css',
-        'react/jsx-runtime',
-      ],
+      external: ['react', 'react-dom', 'styled-components'],
     },
-    sourcemap: true,
-    minify: false,
   },
 });
