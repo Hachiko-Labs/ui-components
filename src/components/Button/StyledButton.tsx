@@ -1,114 +1,44 @@
-import { Button } from 'antd';
-import { ButtonProps as AntdButtonProps } from 'antd/lib/button';
-import styled, { css } from 'styled-components';
+import { ButtonProps, ButtonSize, ButtonType } from "./type";
 
-const SizeStyles = css<{ size?: string }>`
-  &.ant-btn {
-    ${({ size }) =>
-      size === 'small' &&
-      `
-      padding: 6px 12px;
-      font-size: 14px;
+const getSizeClasses = (size?: ButtonSize) => {
+  switch (size) {
+    case 'small':
+      return 'px-[12px] py-[6px] text-sm';
+    case 'large':
+      return 'px-[16px] py-[12px] text-lg';
+    default:
+      // default to medium
+      return 'px-[14px] py-[9px] text-base';
+  };
+};
 
-      [class^="material-"] {
-        font-size: 18px;
-      }
-    `}
-    ${({ size }) =>
-      size === 'middle' &&
-      `
-      padding: 9px 14px;
-      font-size: 16px;
-      
-      [class^="material-"] {
-        font-size: 20px;
-      }
-    `}
-    ${({ size }) =>
-      size === 'large' &&
-      `
-      padding: 12px 16px;
-      font-size: 18px;
+const getTypeClasses = (type?: ButtonType) => {
+  switch (type) {
+    case 'primary':
+      return 'bg-primary text-white hover:bg-primary-hover active:bg-primary-active';
+    default:
+      // default to primary
+      return 'border border-primary text-primary hover:border-primary-hover hover:text-primary-hover active:border-primary-active active:text-primary-active';
+  };
+};
 
-      [class^="material-"] {
-        font-size: 22px;
-      }
-    `}
+const getLoadingClasses = (loading?: boolean) => {
+  if (loading) {
+    return 'opacity-50 cursor-wait';
   }
-`;
+  return '';
+};
 
-const ColorStyles = css<{ type?: string }>`
-  ${({ type, theme }) =>
-    type === 'primary' &&
-    `
-    &.ant-btn:not(:disabled):not(.ant-btn-dangerous) {
-      background-color: ${theme.colors.primaryBg};
-      color: ${theme.colors.whiteText};
+const BASE_BUTTON_CLASS = 'd-flex items-center rounded-lg font-medium';
 
-      &:hover {
-        background-color: ${theme.colors.primaryBgHover};
-      }
+export const StyledButton = ({ size, type, children, className, loading, ...props }: ButtonProps) => {
+  const composedClasses = [
+    BASE_BUTTON_CLASS,
+    getSizeClasses(size),
+    getTypeClasses(type),
+    getLoadingClasses(loading),
+    className,
+  ].join(' ');
 
-      &:active {
-        background-color: ${theme.colors.primaryBgActive};
-      }
-    }
-  `}
-
-  ${({ type, theme }) =>
-    type === 'default' &&
-    `
-    &.ant-btn:not(:disabled):not(.ant-btn-dangerous) {
-      border-color: ${theme.colors.primaryBg};
-      color: ${theme.colors.primaryText};
-
-      &:hover {
-        border-color: ${theme.colors.primaryBgHover};
-        color: ${theme.colors.primaryBgHover};
-      }
-
-      &:active {
-        border-color: ${theme.colors.primaryBgActive};
-        color: ${theme.colors.primaryBgActive};
-      }
-    }
-  `}
-
-  ${({ theme }) => `
-    &.ant-btn {
-      &:disabled {
-        border-color: ${theme.colors.colorBorder};
-        background-color: ${theme.colors.colorBorderSecondary};
-        color: ${theme.colors.colorTextQuaternary};
-  
-        &:hover {
-          border-color: ${theme.colors.colorBorder};
-          background-color: ${theme.colors.colorBorderSecondary};
-          color: ${theme.colors.colorTextQuaternary};
-        }
-  
-        &:active {
-          border-color: ${theme.colors.colorBorder};
-          background-color: ${theme.colors.colorBorderSecondary};
-          color: ${theme.colors.colorTextQuaternary};
-        }
-      }
-    }
-  `}
-`;
-
-const StyledButton = styled(Button)<AntdButtonProps>`
-  &.ant-btn {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    border-radius: 6px;
-    box-shadow: none;
-    font-family: ${({ theme }) => theme.typography.family};
-  }
-
-  ${SizeStyles}
-  ${ColorStyles}
-`;
-
-export default StyledButton;
+  return <button className={composedClasses} {...props}>{children}</button>
+};

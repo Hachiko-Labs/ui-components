@@ -1,5 +1,3 @@
-// Files
-export * from './components';
+import './index.css';
 
-// Themes
-export * from './theme';
+export * from './components';
