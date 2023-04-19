@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -9,9 +9,8 @@ export default {
           DEFAULT: '#4A3AFF',
           active: '#3027D9',
         },
-      }
-    }
+      },
+    },
   },
   plugins: [],
-}
-
+};

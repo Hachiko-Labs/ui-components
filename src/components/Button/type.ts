@@ -9,4 +9,4 @@ export interface ButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonE
   size?: ButtonSize;
   type?: ButtonType;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-};
+}

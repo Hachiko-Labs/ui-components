@@ -1,4 +1,4 @@
-import { ButtonProps, ButtonSize, ButtonType } from "./type";
+import { ButtonProps, ButtonSize, ButtonType } from './type';
 
 const getSizeClasses = (size?: ButtonSize) => {
   switch (size) {
@@ -9,7 +9,7 @@ const getSizeClasses = (size?: ButtonSize) => {
     default:
       // default to medium
       return 'px-[14px] py-[9px] text-base';
-  };
+  }
 };
 
 const getTypeClasses = (type?: ButtonType) => {
@@ -19,7 +19,7 @@ const getTypeClasses = (type?: ButtonType) => {
     default:
       // default to primary
       return 'border border-primary text-primary hover:border-primary-hover hover:text-primary-hover active:border-primary-active active:text-primary-active';
-  };
+  }
 };
 
 const getLoadingClasses = (loading?: boolean) => {
@@ -31,7 +31,14 @@ const getLoadingClasses = (loading?: boolean) => {
 
 const BASE_BUTTON_CLASS = 'd-flex items-center rounded-lg font-medium';
 
-export const StyledButton = ({ size, type, children, className, loading, ...props }: ButtonProps) => {
+export const StyledButton = ({
+  size,
+  type,
+  children,
+  className,
+  loading,
+  ...props
+}: ButtonProps) => {
   const composedClasses = [
     BASE_BUTTON_CLASS,
     getSizeClasses(size),
@@ -40,5 +47,9 @@ export const StyledButton = ({ size, type, children, className, loading, ...prop
     className,
   ].join(' ');
 
-  return <button className={composedClasses} {...props}>{children}</button>
+  return (
+    <button className={composedClasses} {...props}>
+      {children}
+    </button>
+  );
 };

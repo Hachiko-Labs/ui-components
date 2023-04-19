@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
-import dts from 'vite-plugin-dts'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react-swc';
+import dts from 'vite-plugin-dts';
 
 import { cssImport } from './vite-plugin-css';
 
@@ -16,7 +16,10 @@ export default defineConfig({
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
-      external: [...Object.keys(packageJson.dependecies), ...Object.keys(packageJson.peerDependencies)],
-    }
-  }
-})
+      external: [
+        ...Object.keys(packageJson.dependecies),
+        ...Object.keys(packageJson.peerDependencies),
+      ],
+    },
+  },
+});

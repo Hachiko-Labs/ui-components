@@ -43,7 +43,7 @@ const cssImport = (): Plugin => {
           option.format === 'es' ? `import './style.css'` : `require('./style.css')`;
         fs.writeFileSync(filePath, `${cssImport};\n${data}`);
       }
-    }
+    },
   };
 };
 
