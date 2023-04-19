@@ -17,8 +17,8 @@ export default defineConfig({
     },
     rollupOptions: {
       external: [
-        ...Object.keys(packageJson.dependecies),
-        ...Object.keys(packageJson.peerDependencies),
+        ...Object.keys(packageJson.dependecies || {}),
+        ...Object.keys(packageJson.peerDependencies || {}),
       ],
     },
   },
