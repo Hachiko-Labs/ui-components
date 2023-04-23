@@ -1,16 +1,10 @@
-export enum InputSize {
-  SMALL = 24,
-  MEDIUM = 32,
-  LARGE = 40,
-}
-export type InputType = 'text' | 'textarea';
+export type InputSize = 'small' | 'medium' | 'large';
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
   className?: string;
   size?: InputSize;
   placeholder?: string;
   maxLength?: number;
-  type?: InputType;
   value?: string;
   bordered?: boolean;
   disabled?: boolean;
