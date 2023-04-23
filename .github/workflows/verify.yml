@@ -40,7 +40,7 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
   autoVersion:
-    name: Auto version
+    name: Auto scripts
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
@@ -53,6 +53,9 @@ jobs:
       
       - name: Install dependencies
         run: npm install
+
+      - name: Auto Label
+        run: npm run autoLabel
 
       - name: Auto version
         run: npm run autoVersion
