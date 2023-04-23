@@ -2,23 +2,29 @@ import { InputProps, InputSize } from './type';
 
 const getSizeClasses = (size?: InputSize) => {
   switch (size) {
-    case InputSize.SMALL:
+    case 'small':
       return 'text-sm px-[12px] py-[5px]';
-    case InputSize.MEDIUM:
-      return 'text-base px-[20px] py-[10px]';
-    case InputSize.LARGE:
+    case 'large':
       return 'text-lg px-[24px] py-[15px]';
+    default:
+      return 'text-base px-[20px] py-[10px]';
   }
 };
 
 const getBorderedClasses = (bordered?: boolean) => {
-  if (!bordered) {
-    return 'border border-primary active:border-primary-active focus:ring-0';
+  if (bordered) {
+    return 'border border-neutral-border hover:border-primary focus:border-primary';
   }
-  return 'border-0';
+  return 'border border-transparent focus:border-primary hover:border-primary';
 };
 
-const BASE_INPUT_CLASS = 'd-flex items-center rounded-md';
+const getDisabledClasses = (disabled?: boolean) => {
+  if (disabled) {
+    return 'border disabled:border-neutral-border';
+  }
+};
+
+const BASE_INPUT_CLASS = 'd-flex items-center rounded-md focus:outline-none';
 
 export const StyledInput = ({
   className,
@@ -28,14 +34,18 @@ export const StyledInput = ({
   type,
   value,
   bordered,
+  disabled,
   ...props
 }: InputProps) => {
   const composedClasses = [
     BASE_INPUT_CLASS,
     getSizeClasses(size),
     getBorderedClasses(bordered),
+    getDisabledClasses(disabled),
     className,
   ].join(' ');
 
-  return <input className={composedClasses} {...props} placeholder={placeholder}></input>;
+  return (
+    <input className={composedClasses} disabled={disabled} {...props} placeholder={placeholder} />
+  );
 };

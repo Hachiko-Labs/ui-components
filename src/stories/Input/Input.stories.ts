@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Input } from '../../components';
-import { InputSize } from '../../components/Input/type';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
@@ -17,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 export const Small: Story = {
   args: {
     placeholder: 'Basic usage',
-    size: InputSize.SMALL,
+    size: 'small',
     bordered: false,
     disabled: false,
   },
@@ -26,24 +25,24 @@ export const Small: Story = {
 export const Medium: Story = {
   args: {
     placeholder: 'Basic usage',
-    size: InputSize.MEDIUM,
-    bordered: false
+    size: 'medium',
+    bordered: false,
   },
 };
 
 export const Large: Story = {
   args: {
     placeholder: 'Basic usage',
-    size: InputSize.LARGE,
-    bordered: false
+    size: 'large',
+    bordered: false,
   },
 };
 
 export const Disabled: Story = {
   args: {
     placeholder: 'Basic usage',
-    size: InputSize.MEDIUM,
+    size: 'medium',
     disabled: true,
-    bordered: true
+    bordered: true,
   },
 };
