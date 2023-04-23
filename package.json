@@ -20,7 +20,7 @@
     "lint": "eslint --cache --cache-location=.cache/eslint --ext .js,.jsx,.html,.ts,.tsx,.mdx,.md --report-unused-disable-directives",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
-    "autoVersion": "./scripts/version.sh",
+    "autoVersion": "VERSION=`auto version` && npm version $VERSION && git push --follow-tags origin $branch",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
