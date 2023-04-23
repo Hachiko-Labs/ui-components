@@ -22,8 +22,3 @@ jobs:
         run: npm run autoLabel
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-
-      - name: Auto version
-        run: npm run autoVersion
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
