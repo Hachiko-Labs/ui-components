@@ -30,9 +30,6 @@ export const StyledInput = ({
   className,
   size,
   placeholder,
-  maxLength,
-  type,
-  value,
   bordered,
   disabled,
   ...props

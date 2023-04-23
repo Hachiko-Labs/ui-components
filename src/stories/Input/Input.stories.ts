@@ -17,7 +17,7 @@ export const Small: Story = {
   args: {
     placeholder: 'Basic usage',
     size: 'small',
-    bordered: false,
+    bordered: true,
     disabled: false,
   },
 };
@@ -26,7 +26,7 @@ export const Medium: Story = {
   args: {
     placeholder: 'Basic usage',
     size: 'medium',
-    bordered: false,
+    bordered: true,
   },
 };
 
@@ -34,7 +34,7 @@ export const Large: Story = {
   args: {
     placeholder: 'Basic usage',
     size: 'large',
-    bordered: false,
+    bordered: true,
   },
 };
 
@@ -43,6 +43,5 @@ export const Disabled: Story = {
     placeholder: 'Basic usage',
     size: 'medium',
     disabled: true,
-    bordered: true,
   },
 };

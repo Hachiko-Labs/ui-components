@@ -4,8 +4,6 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
   className?: string;
   size?: InputSize;
   placeholder?: string;
-  maxLength?: number;
-  value?: string;
   bordered?: boolean;
   disabled?: boolean;
 }
