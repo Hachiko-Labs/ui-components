@@ -13,7 +13,7 @@ const getSizeClasses = (size?: InputSize) => {
 
 const getBorderedClasses = (bordered?: boolean) => {
   if (!bordered) {
-    return 'border border-primary';
+    return 'border border-primary active:border-primary-active focus:ring-0';
   }
   return 'border-0';
 };
