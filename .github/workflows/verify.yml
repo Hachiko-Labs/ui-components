@@ -1,26 +1,13 @@
 name: Verify changes
 
-on: pull_request
+on: 
+  pull_request
+  branches:
+    - main
 
 jobs:
-  branch-info:
-    name: Branch Info
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get base branch
-        id: get-base-branch
-        run: |
-          if [[ "${{github.event.pull_request.base.ref}}" != "" ]]; then
-            echo "BRANCH=${{github.event.pull_request.base.ref}}" >> $GITHUB_OUTPUT
-          else
-            echo "BRANCH=main" >> $GITHUB_OUTPUT
-          fi
-    outputs:
-      base-branch: ${{ steps.get-base-branch.outputs.BRANCH }}
-
   lint:
     name: Lint
-    needs: [branch-info]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -37,3 +24,21 @@ jobs:
 
       - name: Lint
         run: npm run lint
+
+  types:
+    name: TypeScript
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      
+      - name: Install dependencies
+        run: npm install
+
+      - name: Typecheck
+        run: npm run typecheck
