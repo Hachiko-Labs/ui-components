@@ -9,6 +9,9 @@ export default {
           DEFAULT: '#4A3AFF',
           active: '#3027D9',
         },
+        neutral: {
+          border: '#DCDDEB', //TO-DO: Define color names.
+        },
       },
     },
   },
