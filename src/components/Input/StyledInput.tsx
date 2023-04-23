@@ -20,7 +20,7 @@ const getBorderedClasses = (bordered?: boolean) => {
 
 const getDisabledClasses = (disabled?: boolean) => {
   if (disabled) {
-    return 'border disabled:border-neutral-border';
+    return 'border disabled:border-neutral-border cursor-not-allowed';
   }
 };
 
