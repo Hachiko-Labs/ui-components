@@ -42,3 +42,20 @@ jobs:
 
       - name: Typecheck
         run: npm run typecheck
+  autoVersion:
+    name: Auto version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      
+      - name: Install dependencies
+        run: npm install
+
+      - name: Auto version
+        run: npm run autoVersion
