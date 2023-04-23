@@ -1,6 +1,6 @@
 {
   "name": "@hachiko-labs/ui-components",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "files": [
     "dist"
   ],
@@ -20,7 +20,6 @@
     "lint": "eslint --cache --cache-location=.cache/eslint --ext .js,.jsx,.html,.ts,.tsx,.mdx,.md --report-unused-disable-directives",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
-    "autoLabel": "auto label",
     "autoVersion": "VERSION=`auto version` && npm version $VERSION",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
