@@ -19,6 +19,8 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,mdx}\"",
     "lint": "eslint --cache --cache-location=.cache/eslint --ext .js,.jsx,.html,.ts,.tsx,.mdx,.md --report-unused-disable-directives",
     "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "autoVersion": "VERSION=`auto version` && npm version $VERSION",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
