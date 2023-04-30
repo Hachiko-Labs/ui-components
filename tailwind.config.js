@@ -11,6 +11,8 @@ export default {
         },
         neutral: {
           border: '#DCDDEB', //TO-DO: Define color names.
+          fillSecondary: '#EFF0F6',
+          textSecondary: '#6E7191',
         },
       },
     },
