@@ -1,26 +1,45 @@
 import { SwitchProps, SwitchSize } from './type';
 
 import { Switch } from '@headlessui/react';
+import { useState } from 'react';
+import { StyledSpan } from './StyledSpan';
+
+const getSizeClasses = (size?: SwitchSize) => {
+  switch (size) {
+    case 'small':
+      return 'w-7 h-4';
+    default:
+      return 'w-11 h-6';
+  }
+};
 
 const getEnabledClasses = (enabled?: boolean) => {
   if (enabled) {
-    return 'translate-x-6';
+    return 'bg-primary';
   }
-  return 'translate-x-1';
+  return 'bg-neutral-500';
 };
 
-const BASE_SPAN_CLASS = 'inline-block h-4 w-4 transform rounded-full bg-white transition';
+const BASE_SWITCH_CLASS = 'relative inline-flex items-center rounded-full';
 
-const BASE_SWITCH_CLASS =
-  'relative inline-flex h-6 w-11 items-center rounded-full ui-checked:bg-blue-600 ui-not-checked:bg-gray-200 bg-primary';
+export const StyledSwitch = ({ className, size, ...props }: SwitchProps) => {
+  const [enabled, setEnabled] = useState(false);
 
-export const StyledSwitch = ({ className, size, enabled, ...props }: SwitchProps) => {
-  const composedClasses = [BASE_SWITCH_CLASS, className].join(' ');
-  const spanClasses = [BASE_SPAN_CLASS, getEnabledClasses(enabled)].join(' ');
+  const composedClasses = [
+    BASE_SWITCH_CLASS,
+    getSizeClasses(size),
+    getEnabledClasses(enabled),
+    className,
+  ].join(' ');
 
+  const spanProps = {
+    enabled,
+    size,
+  };
+  
   return (
-    <Switch className={composedClasses} {...props}>
-      <span className={spanClasses} />
+    <Switch className={composedClasses} checked={enabled} onChange={setEnabled} {...props}>
+      <StyledSpan {...spanProps} />
     </Switch>
   );
 };

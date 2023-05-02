@@ -10,7 +10,9 @@ export default {
           active: '#3027D9',
         },
         neutral: {
-          border: '#DCDDEB', //TO-DO: Define color names.
+          //TO-DO: Define color names.
+          500: '#A0A3BD',
+          border: '#DCDDEB',
         },
       },
     },
