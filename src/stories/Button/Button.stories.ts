@@ -8,7 +8,7 @@ const meta = {
   component: Button,
   tags: ['autodocs'],
   argTypes: {
-    onClick: { type: 'function' },
+    onClick: { type: 'symbol' },
   },
 } satisfies Meta<typeof Button>;
 

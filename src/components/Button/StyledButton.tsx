@@ -1,3 +1,5 @@
+import { Icon } from '../Icon';
+import { Space } from '../Space';
 import { ButtonProps, ButtonSize, ButtonType } from './type';
 
 const getSizeClasses = (size?: ButtonSize) => {
@@ -22,34 +24,55 @@ const getTypeClasses = (type?: ButtonType) => {
   }
 };
 
-const getLoadingClasses = (loading?: boolean) => {
-  if (loading) {
-    return 'opacity-50 cursor-wait';
+const getDisabledClasses = (disabled?: boolean) => {
+  if (disabled) {
+    return 'border disabled:border-neutral-border cursor-not-allowed bg-neutral-fillSecondary text-neutral-textSecondary';
   }
-  return '';
 };
 
-const BASE_BUTTON_CLASS = 'd-flex items-center rounded-lg font-medium';
+const iconSizes = (size?: ButtonSize) => {
+  switch (size) {
+    case 'small':
+      return 16;
+    case 'large':
+      return 24;
+    default:
+      // default to medium
+      return 20;
+  }
+};
+
+const BASE_BUTTON_CLASS = 'flex items-center rounded-lg font-medium';
 
 export const StyledButton = ({
   size,
   type,
   children,
   className,
+  leftIcon,
   loading,
+  rightIcon,
+  disabled,
   ...props
 }: ButtonProps) => {
   const composedClasses = [
     BASE_BUTTON_CLASS,
     getSizeClasses(size),
-    getTypeClasses(type),
-    getLoadingClasses(loading),
+    !disabled && !loading && getTypeClasses(type),
+    getDisabledClasses(disabled || loading),
     className,
   ].join(' ');
 
   return (
-    <button className={composedClasses} {...props}>
-      {children}
+    <button className={composedClasses} disabled={disabled} {...props}>
+      <Space>
+        {loading && (
+          <Icon size={iconSizes(size)} className="animate-spin" customIcon="spinner" />
+        )}
+        {!loading && leftIcon && <Icon size={iconSizes(size)}>{leftIcon}</Icon>}
+        <div>{children}</div>
+        {rightIcon && <Icon size={iconSizes(size)}>{rightIcon}</Icon>}
+      </Space>
     </button>
   );
 };
