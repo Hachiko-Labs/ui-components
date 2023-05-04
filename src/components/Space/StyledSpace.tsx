@@ -13,10 +13,10 @@ const getDirectionClasses = (direction?: string) => {
 const getSizeClasses = (direction?: string, size?: number) => {
   switch (direction) {
     case 'horizontal':
-      return `space-x-[${size}px]`;
+      return `space-x-${size}`;
     default:
       // default to vertical
-      return `space-y-[${size}px]`;
+      return `space-y-${size}`;
   };
 };
 
@@ -24,10 +24,10 @@ const BASE_SPACE_CLASS = "flex items-center"
 
 const StyledSpace = ({ className, size = 8, direction = 'horizontal', ...props }: SpaceProps) => {
   const composedClasses = [
-    className,
     BASE_SPACE_CLASS,
-    getDirectionClasses(direction),
+    className,
     getSizeClasses(direction, size),
+    getDirectionClasses(direction),
   ].join(' ');
 
   return <div className={composedClasses} {...props} />

@@ -16,7 +16,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = {
   args: {
-    className: 'bg-stripes-fuchsia',
     children: (
       <>
         <div className="w-14 h-14 flex items-center justify-center text-white rounded-lg bg-fuchsia-500">
