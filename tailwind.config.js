@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  safelist: [
+    {
+      pattern: /^space-(x|y)-\d+/,
+    },
+  ],
   theme: {
     extend: {
       colors: {
@@ -13,6 +18,8 @@ export default {
           //TO-DO: Define color names.
           500: '#A0A3BD',
           border: '#DCDDEB',
+          fillSecondary: '#EFF0F6',
+          textSecondary: '#6E7191',
         },
       },
     },
