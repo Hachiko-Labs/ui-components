@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -16,18 +16,10 @@ jobs:
       
       - run: npm install
       - run: npm run build
-
-  publish:
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      packages: write
-      contents: read
-    steps:
-      - uses: actions/checkout@v3
         with:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
+
       - run: npm config set '//npm.pkg.github.com/:_authToken' "${GH_TOKEN}"
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
