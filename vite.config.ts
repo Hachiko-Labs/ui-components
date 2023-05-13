@@ -8,12 +8,12 @@ const packageJson = require('./package.json');
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), cssImport(), dts()],
+  plugins: [react(), dts(), cssImport()],
   build: {
     lib: {
       entry: 'src/index.ts',
-      formats: ['es', 'cjs'],
-      fileName: (format) => `index.${format}.js`,
+      name: 'index',
+      fileName: 'index',
     },
     rollupOptions: {
       external: [
