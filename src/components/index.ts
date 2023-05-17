@@ -1,4 +1,4 @@
-export { default as Button } from './Button';
+export * from './Button';
 export * from './Input';
 export * from './Icon';
 export * from './Space';
