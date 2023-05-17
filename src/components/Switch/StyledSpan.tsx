@@ -1,33 +1,28 @@
 import { SwitchSize, SpanProps } from './type';
 
-enum translateAmounts {
-  SMALL_DISABLED = '0.125rem',
-  SMALL_ENABLED = '0.875rem',
-  DEFAULT_DISABLED = '0.25rem',
-  DEFAULT_ENABLED = '1.5rem',
-}
 
 let enabledTranslateAmount: string;
 let translateAmount: string;
 
+// Tailwind can't construct class names dynamically
 const getSizeClasses = (size?: SwitchSize) => {
   switch (size) {
     case 'small':
-      enabledTranslateAmount = translateAmounts.SMALL_ENABLED;
-      translateAmount = translateAmounts.SMALL_ENABLED;
+      translateAmount = `translate-x-0.5`;
+      enabledTranslateAmount = `translate-x-3.5`;
       return 'w-3 h-3';
     default:
-      enabledTranslateAmount = translateAmounts.DEFAULT_ENABLED;
-      translateAmount = translateAmounts.DEFAULT_ENABLED;
+      translateAmount = `translate-x-1`;
+      enabledTranslateAmount = `translate-x-6`;
       return 'w-4 h-4';
   }
 };
 
 const getEnabledClasses = (enabled?: boolean) => {
   if (enabled) {
-    return `translate-x-${enabledTranslateAmount}`;
+    return enabledTranslateAmount;
   }
-  return `translate-x-${translateAmount}`;
+  return translateAmount;
 };
 
 const BASE_SPAN_CLASS =
