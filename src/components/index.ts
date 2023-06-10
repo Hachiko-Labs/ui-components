@@ -2,7 +2,7 @@ export * from './Button';
 export * from './Input';
 export * from './Icon';
 export * from './Space';
-export * from './Switch';
+export { default as Switch } from './Switch';
 
 // Types
 export * from './Button/type';

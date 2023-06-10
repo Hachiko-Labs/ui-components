@@ -8,7 +8,14 @@ const FAMILY = {
   outlined: 'material-symbols-outlined',
 };
 
-export const Icon = ({ family = 'rounded', children, customIcon, style, size, ...props }: IconProps) => {
+export const Icon = ({
+  family = 'rounded',
+  children,
+  customIcon,
+  style,
+  size,
+  ...props
+}: IconProps) => {
   const composedClasses = [FAMILY[family]];
 
   if (customIcon) {

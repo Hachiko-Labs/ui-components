@@ -1,6 +1,5 @@
 import { SwitchSize, SpanProps } from './type';
 
-
 let enabledTranslateAmount: string;
 let translateAmount: string;
 
@@ -28,8 +27,8 @@ const getEnabledClasses = (enabled?: boolean) => {
 const BASE_SPAN_CLASS =
   'pointer-events-none inline-block transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out';
 
-export const StyledSpan = ({ enabled, size, ...props }: SpanProps) => {
-  const composedClasses = [BASE_SPAN_CLASS, getSizeClasses(size), getEnabledClasses(enabled)].join(
+export const StyledSpan = ({ checked, size }: SpanProps) => {
+  const composedClasses = [BASE_SPAN_CLASS, getSizeClasses(size), getEnabledClasses(checked)].join(
     ' '
   );
 

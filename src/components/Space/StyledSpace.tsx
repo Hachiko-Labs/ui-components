@@ -1,4 +1,4 @@
-import { SpaceProps } from "./type";
+import { SpaceProps } from './type';
 
 const getDirectionClasses = (direction?: string) => {
   switch (direction) {
@@ -7,7 +7,7 @@ const getDirectionClasses = (direction?: string) => {
     default:
       // default to vertical
       return 'flex-col';
-  };
+  }
 };
 
 const getSizeClasses = (direction?: string, size?: number) => {
@@ -17,10 +17,10 @@ const getSizeClasses = (direction?: string, size?: number) => {
     default:
       // default to vertical
       return `space-y-${size}`;
-  };
+  }
 };
 
-const BASE_SPACE_CLASS = "flex items-center"
+const BASE_SPACE_CLASS = 'flex items-center';
 
 const StyledSpace = ({ className, size = 8, direction = 'horizontal', ...props }: SpaceProps) => {
   const composedClasses = [
@@ -30,7 +30,7 @@ const StyledSpace = ({ className, size = 8, direction = 'horizontal', ...props }
     getDirectionClasses(direction),
   ].join(' ');
 
-  return <div className={composedClasses} {...props} />
+  return <div className={composedClasses} {...props} />;
 };
 
 export default StyledSpace;

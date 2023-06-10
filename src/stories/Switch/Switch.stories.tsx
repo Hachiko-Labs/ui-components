@@ -12,7 +12,19 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
+export const WithLabel = (args: any) => (
+  <div className="flex items-center">
+    <label className="mr-2">Label</label>
+    <Switch {...args} />
+  </div>
+);
+
+export const DefaultChecked: Story = {
+  args: {
+    defaultChecked: true,
+  },
+};
+
 export const Small: Story = {
   args: {
     size: 'small',
