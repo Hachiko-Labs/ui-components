@@ -4,7 +4,7 @@ export default {
   safelist: [
     {
       pattern: /^space-(x|y)-\d+/,
-    }
+    },
   ],
   theme: {
     extend: {
@@ -15,7 +15,9 @@ export default {
           active: '#3027D9',
         },
         neutral: {
-          border: '#DCDDEB', //TO-DO: Define color names.
+          //TO-DO: Define color names.
+          500: '#A0A3BD',
+          border: '#DCDDEB',
           fillSecondary: '#EFF0F6',
           textSecondary: '#6E7191',
         },

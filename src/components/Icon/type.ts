@@ -10,4 +10,4 @@ export interface IconProps {
   style?: React.CSSProperties;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
   family?: IconFamily;
-};
+}

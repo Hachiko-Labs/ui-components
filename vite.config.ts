@@ -8,7 +8,7 @@ const packageJson = require('./package.json');
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), cssImport(), dts()],
+  plugins: [react(), cssImport(), dts()], 
   build: {
     lib: {
       entry: 'src/index.ts',

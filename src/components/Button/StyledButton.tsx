@@ -66,9 +66,7 @@ export const StyledButton = ({
   return (
     <button className={composedClasses} disabled={disabled} {...props}>
       <Space>
-        {loading && (
-          <Icon size={iconSizes(size)} className="animate-spin" customIcon="spinner" />
-        )}
+        {loading && <Icon size={iconSizes(size)} className="animate-spin" customIcon="spinner" />}
         {!loading && leftIcon && <Icon size={iconSizes(size)}>{leftIcon}</Icon>}
         <div>{children}</div>
         {rightIcon && <Icon size={iconSizes(size)}>{rightIcon}</Icon>}

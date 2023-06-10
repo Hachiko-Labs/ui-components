@@ -6,7 +6,7 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:storybook/recommended',
     'eslint:recommended',
-    'prettier'
+    'prettier',
   ],
   parserOptions: {
     project: ['./tsconfig.json'],

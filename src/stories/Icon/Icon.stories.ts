@@ -8,7 +8,7 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     onClick: { type: 'function' },
-  }
+  },
 } satisfies Meta<typeof Icon>;
 
 export default meta;
@@ -23,5 +23,5 @@ export const MaterialIcon: Story = {
 export const CustomIcon: Story = {
   args: {
     customIcon: 'spinner',
-  }
+  },
 };
