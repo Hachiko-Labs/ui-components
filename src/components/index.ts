@@ -9,3 +9,4 @@ export * from './Button/type';
 export * from './Input/type';
 export * from './Icon/type';
 export * from './Space/type';
+export * from './Switch/type';

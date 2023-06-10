@@ -18,3 +18,9 @@ export const Small: Story = {
     size: 'small',
   },
 };
+
+export const Medium: Story = {
+  args: {
+    size: 'medium',
+  },
+};
