@@ -4,8 +4,5 @@
     "released"
   ],
   "owner": "Hachiko-Labs",
-  "repo": "ui-components",
-  "name": "Christian Najera",
-  "email": "christian@hachikolabs.io",
-  "onlyPublishWithReleaseLabel": false
+  "repo": "ui-components"
 }

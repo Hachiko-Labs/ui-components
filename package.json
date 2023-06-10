@@ -1,12 +1,10 @@
 {
   "name": "@hachiko-labs/ui-components",
   "version": "0.0.1",
-  "files": [
-    "dist"
-  ],
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
+  "files": ["./dist"],
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
@@ -19,6 +17,8 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,mdx}\"",
     "lint": "eslint --cache --cache-location=.cache/eslint --ext .js,.jsx,.html,.ts,.tsx,.mdx,.md --report-unused-disable-directives",
     "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "autoVersion": "VERSION=`auto version` && npm version $VERSION",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -52,8 +52,5 @@
     "typescript": "^4.9.3",
     "vite": "^4.2.0",
     "vite-plugin-dts": "^2.3.0"
-  },
-  "dependencies": {
-    "@headlessui/react": "^1.7.14"
   }
 }
