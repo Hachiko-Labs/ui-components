@@ -1,4 +1,3 @@
-import { cloneElement, createElement } from 'react';
 import { icons } from './icons';
 import { IconProps } from './type';
 

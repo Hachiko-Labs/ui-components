@@ -20,6 +20,7 @@ export default {
           border: '#DCDDEB',
           fillSecondary: '#EFF0F6',
           textSecondary: '#6E7191',
+          bg: '#ffffff',
         },
       },
     },

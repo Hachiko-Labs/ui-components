@@ -1,26 +1,22 @@
-import { useState } from 'react';
-import { Switch } from '@headlessui/react';
+import * as Switch from '@radix-ui/react-switch';
 
 import { SwitchProps, SwitchSize } from './type';
-import { StyledSpan } from './StyledSpan';
+import { StyledThumb } from './StyledThumb';
 
 const getSizeClasses = (size?: SwitchSize) => {
   switch (size) {
     case 'small':
-      return 'w-7 h-4';
+      return 'w-[30px] h-[15px]';
     default:
-      return 'w-11 h-6';
+      return 'w-[45px] h-[25px]';
   }
 };
 
-const getEnabledClasses = (enabled?: boolean) => {
-  if (enabled) {
-    return 'bg-primary';
-  }
-  return 'bg-neutral-500';
-};
+const CHECKED_SWITCH_CLASS =
+  'data-[state=checked]:bg-primary data-[state=unchecked]:bg-neutral-500';
 
-const BASE_SWITCH_CLASS = 'relative inline-flex items-center rounded-full';
+const BASE_SWITCH_CLASS =
+  'rounded-full relative inline-flex items-center outline-none cursor-default';
 
 export const StyledSwitch = ({
   className,
@@ -29,22 +25,20 @@ export const StyledSwitch = ({
   onCheckedChange,
   ...props
 }: SwitchProps) => {
-  const [enabled, setEnabled] = useState(defaultChecked);
   const composedClasses = [
     BASE_SWITCH_CLASS,
+    CHECKED_SWITCH_CLASS,
     getSizeClasses(size),
-    getEnabledClasses(enabled),
     className,
   ].join(' ');
 
   const handleCheckedChange = (checked: boolean) => {
-    setEnabled(checked);
     onCheckedChange?.(checked);
   };
 
   return (
-    <Switch className={composedClasses} checked={enabled} onChange={handleCheckedChange} {...props}>
-      <StyledSpan size={size} checked={enabled} />
-    </Switch>
+    <Switch.Root className={composedClasses} onCheckedChange={handleCheckedChange} {...props}>
+      <StyledThumb size={size} />
+    </Switch.Root>
   );
 };

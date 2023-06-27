@@ -8,10 +8,7 @@ const pkg = require('./package.json');
 
 module.exports = {
   input: 'src/index.ts',
-  external: [
-    ...Object.keys(pkg.dependencies || {}),
-    ...Object.keys(pkg.devDependencies || {}),
-  ],
+  external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.devDependencies || {})],
   output: [
     {
       dir: 'dist/cjs',
@@ -37,11 +34,7 @@ module.exports = {
       include: ['node_modules/**'],
     }),
     postcss({
-      plugins: [
-        require('postcss-import'),
-        require('tailwindcss'),
-        require('autoprefixer'),
-      ],
+      plugins: [require('postcss-import'), require('tailwindcss'), require('autoprefixer')],
     }),
-  ]
+  ],
 };
