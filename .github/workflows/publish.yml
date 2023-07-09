@@ -3,8 +3,6 @@ name: Publish
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
 
 jobs:
   publish:
@@ -19,9 +17,9 @@ jobs:
       - run: npm install
       - run: npm run build
 
-      - run: npm config set '//npm.pkg.github.com/:_authToken' "${GH_TOKEN}"
+      - run: npm config set '//npm.pkg.github.com/:_authToken' "${GITHUB_TOKEN}"
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      - run: npm run publish-package
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: npm run publish-packages
         env:
-          GH_TOKEN: ${{secrets.GH_TOKEN}}
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
