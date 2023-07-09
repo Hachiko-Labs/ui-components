@@ -7,8 +7,7 @@
     "lint": "turbo run lint",
     "tsc": "turbo run tsc",
     "publish-packages": "turbo run build lint && changeset version && changeset publish",
-    "format": "prettier --write \"**/*.{ts,tsx,js,jsx}\"",
-    "prepare": "husky install"
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx}\" --log-level warn"
   },
   "packageManager": "npm@9.5.1",
   "workspaces": [
@@ -26,10 +25,5 @@
   "devDependencies": {
     "husky": "^8.0.0",
     "lint-staged": "^13.2.3"
-  },
-  "lint-staged":{
-    "**/*.{js,jsx,ts,tsx}":[
-      "npm run format"
-    ]
   }
 }
