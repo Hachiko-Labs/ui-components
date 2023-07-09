@@ -1,0 +1,6 @@
+{
+  "name": "tailwind-config",
+  "version": "0.0.0",
+  "files": ["tailwind.config.js"],
+  "license": "MIT"
+}
