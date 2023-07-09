@@ -1,5 +1,5 @@
 {
-  "extends": "tsconfig/nextjs.json",
+  "extends": "@hachiko-labs/tsconfig/nextjs.json",
   "compilerOptions": {
     "allowJs": true,
     "skipLibCheck": true,
