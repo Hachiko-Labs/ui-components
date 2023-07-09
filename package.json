@@ -7,7 +7,8 @@
     "lint": "turbo run lint",
     "tsc": "turbo run tsc",
     "publish-packages": "turbo run build lint && changeset version && changeset publish",
-    "format": "prettier --write \"**/*.{ts,tsx,js,jsx}\""
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx}\"",
+    "prepare": "husky install"
   },
   "packageManager": "npm@9.5.1",
   "workspaces": [
@@ -16,10 +17,19 @@
   ],
   "dependencies": {
     "@changesets/cli": "^2.26.2",
-    "prettier": "^3.0.0",
     "@hachiko-labs/eslint-config": "*",
     "@hachiko-labs/tailwind-config": "*",
     "@hachiko-labs/tsconfig": "*",
+    "prettier": "^3.0.0",
     "turbo": "1.10.7"
+  },
+  "devDependencies": {
+    "husky": "^8.0.0",
+    "lint-staged": "^13.2.3"
+  },
+  "lint-staged":{
+    "**/*.{js,jsx,ts,tsx}":[
+      "npm run format"
+    ]
   }
 }
