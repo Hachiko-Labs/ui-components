@@ -1,0 +1,4 @@
+{
+  "extends": "@hachiko-labs/tsconfig/react-library.json",
+  "include": ["src"],
+}
