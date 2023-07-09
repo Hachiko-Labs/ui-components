@@ -1,2 +1,2 @@
-const config = require('tailwind-config/tailwind.config.js')
+import config from 'tailwind-config/tailwind.config'
 export default config
