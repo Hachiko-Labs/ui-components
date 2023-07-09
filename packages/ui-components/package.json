@@ -8,6 +8,7 @@
   "module": "./dist/esm/index.js",
   "source": "./src/index.ts",
   "scripts": {
+    "clean": "rm -rf .turbo && rm -rf dist && rm -rf node_modules && rm -rf storybook-static",
     "build": "rollup -c",
     "typecheck": "tsc --noEmit",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx",

@@ -1,3 +1,3 @@
-import config from 'tailwind-config/tailwind.config'
+import config from '@hachiko-labs/tailwind-config/tailwind.config'
 
 module.exports = config

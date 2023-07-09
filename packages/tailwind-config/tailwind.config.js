@@ -18,6 +18,7 @@ module.exports = {
         primary: {
           active: '#3027d9',
           DEFAULT: '#4a3aff',
+          hover: '#766CFF',
         },
         secondary: {
           color3: '#7d42fb',
