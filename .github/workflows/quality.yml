@@ -42,4 +42,4 @@ jobs:
         run: npm install
 
       - name: Typecheck
-        run: npm run typecheck
+        run: npm run tsc
